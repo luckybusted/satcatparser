@@ -1,0 +1,21 @@
+{
+  "name": "satcatparser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "start": "node .",
+    "test": "echo \"Error: no test specified\"",
+    "pretest": "jshint ."
+  },
+  "author": "",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "cheerio": "^1.0.0-rc.2",
+    "firebase": "^4.8.1",
+    "moment": "^2.20.1"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.4"
+  }
+}
