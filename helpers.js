@@ -19,7 +19,7 @@ function extractData (html) {
     //closing = moment(closing.slice(0, closing.indexOf('-') - 1), 'DD/MM/YYYY').toISOString();
 
     let row = $(el).text().trim();
-    let country = $(el).children("td[align='LEFT']").text().trim();
+    let country = $(el).children("td[align='left']").text().trim();
     let plOrbit = {'orbit' : $(el).children("td:nth-child(2)").text().trim()};
     let plDecayed = {'decayed' : $(el).children("td:nth-child(3)").text().trim()};
     let plTotal = {'total' : $(el).children("td:nth-child(4)").text().trim()};

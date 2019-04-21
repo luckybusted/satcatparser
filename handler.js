@@ -28,18 +28,14 @@ module.exports.getsatcatboxscore = (event, context, callback) => {
     .then(({data}) => {
       satData = extractData(data);
 
-      console.log('satDATA: ', satData)
-
     })
     .then(response => {
       firebase.database().ref().child('data').set(satData, function(){
         process.exit(0);
-        console.log('pushed to FIREBASE');
-
       })
     })
     .then(() => {
-      callback(null, 'END2' + satData);
+      callback(null, 'END');
     })
     .catch(callback);
 };
