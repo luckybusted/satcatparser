@@ -4,13 +4,15 @@ const cheerio = require('cheerio');
 const moment = require('moment');
 
 function extractData (html) {
+
   const $ = cheerio.load(html);
-  const dataTable = $("center table tbody table tbody tr[align='RIGHT']");
+  const dataTable = $("table.center tbody tr[align='right']");
+  //const dataTable = $("center table tbody table tbody tr[align='RIGHT']");
 
   const satellites = [];
   dataTable.each((i, el) => {
 
-    // Extract information from each row of the jobs table
+    // Extract information from each row of the satellites table
     //let closing = $(el).children('.views-field-field-vacancy-deadline').first().text().trim();
     //let job = $(el).children('.views-field-title').first().text().trim();
     //let location = $(el).children('.views-field-name').text().trim();

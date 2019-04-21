@@ -1,6 +1,7 @@
 'use strict';
 
-const request = require('axios');
+
+const request = require("axios");
 const {extractData} = require('./helpers');
 let firebase = require('firebase');
 
@@ -26,15 +27,19 @@ module.exports.getsatcatboxscore = (event, context, callback) => {
   request('https://www.celestrak.com/satcat/boxscore.asp')
     .then(({data}) => {
       satData = extractData(data);
-      // todo: function didnt close itself and causes an timeout...
+
+      console.log('satDATA: ', satData)
+
     })
     .then(response => {
       firebase.database().ref().child('data').set(satData, function(){
         process.exit(0);
-      });
+        console.log('pushed to FIREBASE');
+
+      })
     })
     .then(() => {
-      callback(null, 'END');
+      callback(null, 'END2' + satData);
     })
     .catch(callback);
 };
